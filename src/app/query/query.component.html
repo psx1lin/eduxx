@@ -1,0 +1,49 @@
+<div id="idprogressSpinner">
+    <p-progressSpinner
+    *ngIf="display"
+    [style]="{ width: '50px', height: '50px' }"
+    styleClass="custom-spinner"
+    strokeWidth="8"
+    fill="#EEEEEE"
+    animationDuration=".5s"
+    ></p-progressSpinner>
+  </div>
+  
+<p-table #dt1 [columns]="cols" [value]="drEduPoints" 
+    responsiveLayout="scroll"
+    [loading]="loading" >
+    <ng-template pTemplate="caption" >
+        <div class="flex align-items-center justify-content-between">
+            點數列表            
+                <button pButton pRipple type="button" label=""  icon="pi pi-refresh" class="p-button-text"></button>   
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">              
+                    {{col.header}}                    
+            </th>
+        </tr>
+        <tr>
+            <th *ngFor="let col of columns"> 
+				<p-columnFilter *ngIf="col.field=='dr' && secu >= '5' " type="text" field="dr" pTooltip="關鍵字查詢" placeholder="關鍵字查詢" ></p-columnFilter>
+				<p-columnFilter *ngIf="col.field=='year'" type="text" field="year" pTooltip="關鍵字查詢" placeholder="關鍵字查詢" ></p-columnFilter>
+				<p-columnFilter *ngIf="col.field=='point'" type="text" field="point" pTooltip="關鍵字查詢"  placeholder="關鍵字查詢" ></p-columnFilter>
+			</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+            共有: {{drEduPoints ? drEduPoints.length : 0 }} 筆 ,總計: {{ totalPoint }} 點數
+        </div>
+    </ng-template>
+</p-table>

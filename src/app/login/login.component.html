@@ -1,0 +1,43 @@
+<p-messages></p-messages>
+
+<!-- <button type="button" pButton (click)="showViaService()" label="Via Service"></button> -->
+<div id="idprogressSpinner">
+  <p-progressSpinner
+  *ngIf="display"
+  [style]="{ width: '50px', height: '50px' }"
+  styleClass="custom-spinner"
+  strokeWidth="8"
+  fill="#EEEEEE"
+  animationDuration=".5s"
+  ></p-progressSpinner>
+</div>
+
+
+<div class="card main">
+  <div class="grid">
+    <div class="col-2">
+      <h2>教學點數查詢平台</h2>
+    </div>
+    <div class="col-5 flex align-items-center justify-content-center">
+      <div class="p-fluid">
+        <div class="field">
+          <label for="username">員工代號</label>
+          <input id="username" type="text" pInputText [(ngModel)]="empno" />
+        </div>
+        <div class="field">
+          <label for="password">OA密碼</label>
+          <input id="password" type="password" pInputText [(ngModel)]="pd" />
+        </div>
+        <div  class="field">
+            <p-button label="登入" (onClick)="doLogin()"></p-button>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+     
+    </div>
+  </div>
+</div>
+<div> 
+  v2
+</div>

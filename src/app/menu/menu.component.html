@@ -1,0 +1,12 @@
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+<div *ngIf="isShow" style="text-align: right;">   
+    <!-- <p-tabMenu [model]="items"></p-tabMenu> -->
+    <p-dock [model]="dockItems" position="bottom">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.icon" [alt]="item.label" width="70%" [pTooltip]="item.tooltip">
+        </ng-template>
+    </p-dock>
+    <p class="cust-info">{{oaemp.empno}} - {{oaemp.name}}</p>
+</div>
+<!-- <router-outlet></router-outlet> -->
